@@ -1,0 +1,11 @@
+对于上面的问题 先将left++ 还是先将right-- 如果先将right-- 是否会出现下面情况:
+假设 nums[left + 1] + nums[i] + nums[right] == 0
+将right--
+变成
+nums[left] + nums[i] + nums[right - 1]
+不就是错过了先将left++的情况了吗
+
+首先要明白进行上面的步骤是在nums[left] + nums[i] + nums[right] == 0的大条件下进行的
+既然nums[left] + nums[i] + nums[right] == 0 所以 nums[left + 1] + nums[i] + nums[right] == 0的唯一真解就是nums[left + 1] == nums[left]
+也就是nums[left + 1] + nums[i] + nums[right] == 0 中的nums[left + 1]和nums[left]是重复值
+nums[left + 1] + nums[i] + nums[right] 这三个数已经在当前记录过了,直接跳过即可
