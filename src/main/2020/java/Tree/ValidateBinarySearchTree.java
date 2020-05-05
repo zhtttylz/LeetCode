@@ -113,7 +113,7 @@ public class ValidateBinarySearchTree {
             return false;
         }
 
-        // 左子树不能大于当前节点,将当前节点的值作为right向下传,右子树不能小于left,将前节点的值作为left向下传
+        // 左子树不能大于当前节点,将当前节点的值作为right向下传,右子树不能小于当前节点,将前节点的值作为left向下传
         return help(root.left, left, root.val) && help(root.right, root.val, right);
     }
 }
