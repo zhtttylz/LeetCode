@@ -79,6 +79,32 @@ public class CoinChange {
         return dp[amount];
     }
 
+    public int coinChange1(int[] coins, int amount) {
+
+        if(coins == null || coins.length == 0 || amount == 0) return 0;
+        int[] dp = new int[amount + 1];
+
+        // init dp
+        for(int i = 0; i <= amount; i++){
+
+            // 初始化为amount + 1 因为硬币最小为1 即amount + 1为不能能组成的值
+            dp[i] = amount + 1;
+        }
+
+        dp[0] = 0;
+
+        for(int i = 1; i <= amount; i++){
+
+            for(int j = 0; j < coins.length; j++){
+
+                // 越界处理
+                if(i >= coins[j])
+                dp[i] = Math.min(dp[i], dp[i - coins[j]] + 1);
+            }
+        }
+        return dp[amount] == amount + 1 ? -1 : dp[amount];
+    }
+
     public static void main(String[] args) {
 
         CoinChange c = new CoinChange();
