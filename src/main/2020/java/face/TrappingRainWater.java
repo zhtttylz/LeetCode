@@ -80,15 +80,19 @@ public class TrappingRainWater {
         while(index < height.length){
 
             // 如果当前位>栈顶元素,说明能接住雨水了,要进行计算
-            while(!stack.isEmpty() && stack.peek() < height[index]){
+            while(!stack.isEmpty() && height[stack.peek()] < height[index]){
 
+                // 拿出中间列,计算以这个列位中心,能接住的雨水
                 int num = stack.pop();
-                //计算当前长度和栈顶元素长度的差值
-                int diff = index - num;
-                res += diff * (height[index] - height[num]);
+                if(stack.isEmpty()) break;
+                //计算当前长度和栈顶元素长度的差值(这里要越过num代表的行)
+                int diff = index - stack.peek() - 1;
+                // 计算num代表的边的左右最小值 注意最小值可能等于stack.peek
+                int h = Math.min(height[stack.peek()], height[index]);
+                res += diff * (h - height[num]);
             }
 
-            stack.push(height[index]);
+            stack.push(index);
             index++;
         }
 
