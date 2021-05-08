@@ -1,4 +1,4 @@
-package bak.两个数组求和;
+package bak.两个链表求和;
 
 //You are given two non-empty linked lists representing two non-negative integer
 //s. The digits are stored in reverse order, and each of their nodes contains a si
@@ -52,8 +52,6 @@ package bak.两个数组求和;
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-
-import java.util.List;
 
 /**
  * 使用归并的方法，注意要记录进位，最后单独对进位和剩余的数组进行处理
