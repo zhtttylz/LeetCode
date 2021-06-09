@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * 如果一个层序集合中，一个null节点后面还有不为null的节点，说明有left=null right！= null的情况
+     * 如果一个层序集合中，一个null节点后面还有不为null的节点，说明有left=null right！= null的情况
  */
 public class CheckCompletenessofaBinaryTree {
 
