@@ -8,6 +8,7 @@ public class OddEvenLinkedList {
 
         // 使用奇偶指针
         ListNode pre = head;
+        // 记录head节点和第二个节点，最后进行拼接
         ListNode cur = head.next;
         ListNode tmp = head.next;
 
